@@ -1,23 +1,25 @@
-import React, { useState } from 'react';
-import NavBar from '../../components/NavBar';
+import React from 'react';
+import SearchBar from '../../components/SearchBar';
 import Card from '../../components/Card';
 import { setSEOkeywords } from '../../utils/search';
 
-import { container, gridCards, positionCard } from './style';
+import { container, searchBar, gridCards, positionCard } from './style';
 
-const Homepage = ({ products, cart, setCart, isMobile }) => {
-  const keywords = [];
-  const [searchResults, setSearchResults] = useState([]);
+const Homepage = ({
+  products,
+  setCart,
+  searchResults,
+  setSearchResults,
+  keywords,
+}) => {
   setSEOkeywords(keywords, products);
-
   return (
     <div className={container}>
-      <NavBar
-        cart={cart}
+      <SearchBar
+        classname={searchBar}
         keywords={keywords}
         setSearchResults={setSearchResults}
         searchResults={searchResults}
-        isMobile={isMobile}
       />
       <div className={gridCards}>
         {products.map((product) =>

@@ -5,7 +5,6 @@ import Routes from './routes';
 
 const App = () => {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
 
   const fetchProducts = async () => {
     try {
@@ -23,7 +22,7 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <Routes products={products} cart={cart} setCart={setCart} />
+        <Routes products={products} />
       </BrowserRouter>
     </div>
   );

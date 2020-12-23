@@ -2,7 +2,22 @@ import { css } from 'emotion';
 import { mq } from '../../utils/cssUtils';
 
 export const container = css`
-  background-color: #f0ffff;
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+`;
+
+export const searchBar = css`
+  width: 50%;
+  margin: 1rem auto 1.5rem auto;
+  ${mq[0]} {
+    width: 87%;
+    margin: 1rem auto 1rem auto;
+  }
+  ${mq[1]} {
+    width: 70%;
+    margin: 1rem auto 1rem auto;
+  }
 `;
 
 export const gridCards = css`

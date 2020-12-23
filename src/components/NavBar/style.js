@@ -3,7 +3,7 @@ import { mq } from '../../utils/cssUtils';
 
 export const header = css`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: #d2f6fc;
   border-radius: 20px;
@@ -18,9 +18,9 @@ export const header = css`
 
 export const image = css`
   ${mq[0]} {
-    width: 3rem;
-    height: 3rem;
-    margin-left: 10px;
+    width: 50%;
+    margin-left: 4em;
+    margin-right: 1em;
   }
   ${mq[1]} {
     width: 25%;
@@ -29,17 +29,21 @@ export const image = css`
   }
 `;
 
-export const cart_img = css`
+export const cartIcon = css`
   position: relative;
   text-align: center;
   margin-right: 6em;
   font-size: 1.25em;
+  left: 42%;
   ${mq[0]} {
-    margin-right: 1em;
+    margin-right: 2em;
     font-size: 1em;
+    left: 10%;
   }
   ${mq[1]} {
-    margin-right: 1em;
+    margin-right: 2em;
+    font-size: 1.1rem;
+    left: 35%;
   }
 `;
 
@@ -57,16 +61,12 @@ export const cartItems = css`
     width: 1rem;
     height: 1rem;
     font-size: 0.8rem;
-  }
-`;
-
-export const searchBar = css`
-  flex-grow: 0.75;
-  ${mq[0]} {
-    flex-basis: 30%;
+    bottom: 1rem;
   }
   ${mq[1]} {
-    flex-basis: 30%;
-    flex-shrink: 1;
+    width: 1.1rem;
+    height: 1.1rem;
+    font-size: 1rem;
+    bottom: 0.9rem;
   }
 `;

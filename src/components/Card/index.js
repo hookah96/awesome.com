@@ -14,7 +14,7 @@ import {
 } from './style';
 
 const Card = ({ product, setCart }) => {
-  const { id, name, description, media, price } = product;
+  const { name, description, media, price } = product;
   const addCartItem = (id) => {
     setCart((prevState) => [...prevState, id]);
   };
@@ -43,7 +43,7 @@ const Card = ({ product, setCart }) => {
             icon={faCartPlus}
             className={action_cart}
             onClick={() => {
-              addCartItem(id);
+              addCartItem(product);
               return <h5>The item added to your cart!</h5>;
             }}
           />
