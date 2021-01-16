@@ -17,6 +17,7 @@ export const header = css`
 `;
 
 export const image = css`
+  cursor: pointer;
   ${mq[0]} {
     width: 50%;
     margin-left: 4em;
@@ -29,6 +30,9 @@ export const image = css`
   }
 `;
 
+export const activeCart = css`
+  color: black;
+`;
 export const cartIcon = css`
   position: relative;
   text-align: center;

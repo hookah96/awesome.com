@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import NavBar from './components/NavBar';
 import Homepage from './Pages/Homepage';
@@ -9,12 +9,14 @@ const Routes = ({ products }) => {
   const keywords = [];
   const [cart, setCart] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
-  const [displayProductsNum, setDisplayProductsNum] = useState(true);
-  console.log(products);
+
   return (
-    <NavBar cart={cart} displayProductsNum={displayProductsNum}>
+    <NavBar cart={cart}>
       <Switch>
-        <Route path='/cart' render={() => <Cart cart={cart} />} />
+        <Route
+          path='/cart'
+          render={() => <Cart cart={cart} setCart={setCart} />}
+        />
         <Route
           path='/'
           render={() => (

@@ -13,6 +13,7 @@ const Homepage = ({
   keywords,
 }) => {
   setSEOkeywords(keywords, products);
+
   return (
     <div className={container}>
       <SearchBar

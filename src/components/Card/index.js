@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { formatPrice } from '../../utils/formatPrice';
 import {
   card,
   image,
@@ -38,7 +39,7 @@ const Card = ({ product, setCart }) => {
           </div>
         </div>
         <div className={action}>
-          <h3>{price.formatted_with_symbol}</h3>
+          <h3>{formatPrice(price.raw)}</h3>
           <FontAwesomeIcon
             icon={faCartPlus}
             className={action_cart}
