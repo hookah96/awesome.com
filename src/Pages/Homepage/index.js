@@ -1,5 +1,4 @@
 import React from 'react';
-import SearchBar from '../../components/SearchBar';
 import Card from '../../components/Card';
 import { setSEOkeywords } from '../../utils/search';
 
@@ -16,12 +15,6 @@ const Homepage = ({
 
   return (
     <div className={container}>
-      <SearchBar
-        classname={searchBar}
-        keywords={keywords}
-        setSearchResults={setSearchResults}
-        searchResults={searchResults}
-      />
       <div className={gridCards}>
         {products.map((product) =>
           searchResults.length === 0 ? (
