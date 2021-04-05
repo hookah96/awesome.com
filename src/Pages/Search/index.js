@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../../components/Card';
 import { setSEOkeywords } from '../../utils/search';
 
-import { container, searchBar, gridCards, positionCard } from './style';
+import { container, gridCards, positionCard } from './style';
 
 const SearchPage = ({
   products,
