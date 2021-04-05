@@ -1,28 +1,112 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { header, image, cartIcon, cartItems } from './style';
-import titleLogo from '../../images/titleLogo.png';
+import React, { useState } from 'react';
+import {
+  NavBarContainer,
+  logo,
+  navMenu,
+  navOptions,
+  headerActions,
+  searchbarWidth,
+  basketIcon,
+  ddPositioning,
+  dropdownContainer,
+  ddIcon,
+  ddelement,
+  ddContainerCat,
+  cat,
+} from './style';
+import SearchBar from '../SearchBar';
+import SideNavBar from './SideNavBar';
+import { categories } from '../../utils/arraysForMapping/forNavBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import {
+  faShoppingCart,
+  faCaretRight,
+} from '@fortawesome/free-solid-svg-icons';
 
-const NavBar = ({ cart, children, displayProductsNum }) => {
-  const goToCart = () => {
-    console.log(cart);
+const NavBar = ({
+  cart,
+  children,
+  isTablet,
+  setIsOpenSideNav,
+  isOpenSideNav,
+  scrollToCompany,
+}) => {
+  const [inHover, setInHover] = useState(false);
+  const [inHoverCat, setInHoverCat] = useState(false);
+
+  const scrolling = () => {
+    window.scrollTo({
+      top: scrollToCompany.current.offsetTop,
+      behavior: 'smooth',
+    });
+  };
+
+  const categoryMap = () => {
+    return categories.map((el, i) => (
+      <div key={i} className={cat}>
+        {el.name}
+      </div>
+    ));
   };
 
   return (
     <>
-      <header className={header}>
-        <img src={titleLogo} alt='Logo for header' className={image} />
-        <div className={cartIcon} onClick={goToCart}>
-          <NavLink to='/cart' activeStyle={{ color: 'black' }}>
-            {displayProductsNum && (
-              <div className={cartItems}>{cart.length}</div>
-            )}
-            <FontAwesomeIcon icon={faShoppingCart} />
-          </NavLink>
+      {!isTablet ? (
+        <div className={NavBarContainer}>
+          <div className={logo}>awesome</div>
+
+          <div className={navMenu}>
+            <div
+              className={navOptions}
+              onMouseEnter={() => setInHover(true)}
+              onMouseLeave={() => setInHover(false)}
+            >
+              shop
+              {inHover && (
+                <div className={dropdownContainer}>
+                  <div className={ddPositioning}>
+                    <div
+                      onMouseEnter={() => setInHoverCat(true)}
+                      onMouseLeave={() => setInHoverCat(false)}
+                      className={ddelement}
+                    >
+                      categories
+                      <FontAwesomeIcon icon={faCaretRight} className={ddIcon} />
+                    </div>
+                    <div className={ddelement}>products</div>
+                  </div>
+                  {inHoverCat && (
+                    <div
+                      className={ddContainerCat}
+                      onMouseEnter={() => setInHoverCat(true)}
+                      onMouseLeave={() => setInHoverCat(false)}
+                    >
+                      {categoryMap()}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+
+            <div className={navOptions} onClick={scrolling}>
+              our company
+            </div>
+
+            <div className={navOptions}>contact</div>
+          </div>
+
+          <div className={headerActions}>
+            <SearchBar classname={searchbarWidth} />
+            <FontAwesomeIcon icon={faShoppingCart} className={basketIcon} />
+          </div>
         </div>
-      </header>
+      ) : (
+        <SideNavBar
+          isOpenSideNav={isOpenSideNav}
+          setIsOpenSideNav={setIsOpenSideNav}
+        />
+      )}
+
       {children}
     </>
   );

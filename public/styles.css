@@ -1,11 +1,22 @@
+:root {
+  --main-bg-color: #e9f3fa;
+  --primary: hsl(204, 65%, 52%);
+  --primary-green: #319589;
+  --secondaryDB: #36749e;
+  --secondary-light-blue: #bcdbf3;
+  --secondary-dark-green: #24521d;
+  --basic-lr-margin: 5vw;
+}
+
 * {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 400;
+  font-family: 'Open Sans', sans-serif;
+  /* font-size: 15px; */
 }
 
 body {
   margin: 0;
-  background-color: #f0ffff;
+  padding: 0;
+  background-color: var(--main-bg-color);
 }
 
 a {

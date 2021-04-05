@@ -4,8 +4,20 @@ const breakpoints = [
     max_width: 480,
   },
   {
-    min_width: 768,
-    max_width: 1023,
+    min_width: 481,
+    max_width: 768,
+  },
+  {
+    min_width: 769,
+    max_width: 1024,
+  },
+  {
+    min_width: 1025,
+    max_width: 1200,
+  },
+  {
+    min_width: 1201,
+    max_width: 2000,
   },
 ];
 
