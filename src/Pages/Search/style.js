@@ -1,30 +1,39 @@
 import { css } from 'emotion';
+import { mq } from '../../utils/cssUtils';
 
 export const container = css`
   display: flex;
-  flex-direction: column;
-  margin: 3.5vw var(--basic-lr-margin) 0 var(--basic-lr-margin);
+  justify-content: center;
+  flex-flow: column wrap;
 `;
 
-// export const container = css`
-//   display: grid;
-//   grid-template-columns: [col1] 1fr [col2] 2fr [col3] 1fr;
-//   grid-template-rows: [row1] 1fr [row2] 1fr [row3] auto [row3-end] 3fr;
-// `;
+export const searchBar = css`
+  width: 50%;
+  margin: 1rem auto 1.5rem auto;
+  ${mq[0]} {
+    width: 87%;
+    margin: 1rem auto 1rem auto;
+  }
+  ${mq[1]} {
+    width: 70%;
+    margin: 1rem auto 1rem auto;
+  }
+`;
 
-// export const logo1 = css`
-//   grid-column: col2;
-//   grid-row: row2;
-//   place-self: end center;
-// `;
+export const gridCards = css`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+`;
 
-// export const infoBtn = css`
-//   grid-column: col3;
-//   grid-row: row3;
-//   display: inline;
-//   color: #0068d1;
-//   place-self: center start;
-//   margin-left: 10px;
-//   // height: 600px;
-//   width: 600px;
-// `;
+export const positionCard = css`
+  margin: 1rem;
+  width: 20%;
+  ${mq[0]} {
+    width: 45%;
+    margin: 0.5rem;
+  }
+  ${mq[1]} {
+    width: 25%;
+  }
+`;

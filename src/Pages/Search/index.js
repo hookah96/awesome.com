@@ -1,33 +1,39 @@
 import React from 'react';
-import { container } from './style';
-import SideNavBar from '../../components/SideNavBar';
-import Carousel from '../../components/Carousel/';
-import TrendingCategories from '../../components/TrendingCategories';
-import CompanyCard from '../../components/CompanyCard';
-import Footer from '../../components/Footer';
+import Card from '../../components/Card';
+import { setSEOkeywords } from '../../utils/search';
+
+import { container, searchBar, gridCards, positionCard } from './style';
 
 const SearchPage = ({
-  isTablet,
-  isOpenSideNav,
-  setIsOpenSideNav,
-  scrollToCompany,
+  products,
+  setCart,
+  searchResults,
+  setSearchResults,
+  keywords,
 }) => {
+  setSEOkeywords(keywords, products);
+
   return (
-    <>
-      {isTablet && (
-        <SideNavBar
-          isOpenSideNav={isOpenSideNav}
-          setIsOpenSideNav={setIsOpenSideNav}
-          scrollToCompany={scrollToCompany}
-        />
-      )}
-      <div className={container}>
-        <Carousel />
-        <TrendingCategories isTablet={isTablet} />
+    <div className={container}>
+      <div className={gridCards}>
+        {products.map((product) =>
+          searchResults.length === 0 ? (
+            <div key={product.id} className={positionCard}>
+              <Card product={product} setCart={setCart} />
+            </div>
+          ) : (
+            searchResults.map(
+              (result) =>
+                result === product.id && (
+                  <div key={product.id} className={positionCard}>
+                    <Card product={product} setCart={setCart} />
+                  </div>
+                )
+            )
+          )
+        )}
       </div>
-      <CompanyCard scrollToCompany={scrollToCompany} />
-      <Footer scrollToCompany={scrollToCompany} />
-    </>
+    </div>
   );
 };
 

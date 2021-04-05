@@ -1,39 +1,33 @@
 import React from 'react';
-import Card from '../../components/Card';
-import { setSEOkeywords } from '../../utils/search';
-
-import { container, searchBar, gridCards, positionCard } from './style';
+import { container } from './style';
+import SideNavBar from '../../components/SideNavBar';
+import Carousel from '../../components/Carousel/';
+import TrendingCategories from '../../components/TrendingCategories';
+import CompanyCard from '../../components/CompanyCard';
+import Footer from '../../components/Footer';
 
 const Homepage = ({
-  products,
-  setCart,
-  searchResults,
-  setSearchResults,
-  keywords,
+  isTablet,
+  isOpenSideNav,
+  setIsOpenSideNav,
+  scrollToCompany,
 }) => {
-  setSEOkeywords(keywords, products);
-
   return (
-    <div className={container}>
-      <div className={gridCards}>
-        {products.map((product) =>
-          searchResults.length === 0 ? (
-            <div key={product.id} className={positionCard}>
-              <Card product={product} setCart={setCart} />
-            </div>
-          ) : (
-            searchResults.map(
-              (result) =>
-                result === product.id && (
-                  <div key={product.id} className={positionCard}>
-                    <Card product={product} setCart={setCart} />
-                  </div>
-                )
-            )
-          )
-        )}
+    <>
+      {isTablet && (
+        <SideNavBar
+          isOpenSideNav={isOpenSideNav}
+          setIsOpenSideNav={setIsOpenSideNav}
+          scrollToCompany={scrollToCompany}
+        />
+      )}
+      <div className={container}>
+        <Carousel />
+        <TrendingCategories isTablet={isTablet} />
       </div>
-    </div>
+      <CompanyCard scrollToCompany={scrollToCompany} />
+      <Footer scrollToCompany={scrollToCompany} />
+    </>
   );
 };
 
