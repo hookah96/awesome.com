@@ -11,6 +11,10 @@ export const slider = css`
     margin-top: 5vw;
     margin-bottom: 5vw;
   }
+  ${mq[0]} {
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+  }
 `;
 
 export const txt = css`
@@ -32,6 +36,10 @@ export const txt = css`
     width: 50%;
     font-size: 1.6rem;
   }
+  ${mq[0]} {
+    width: 70%;
+    font-size: 1rem;
+  }
 `;
 
 export const bannerBtn = css`
@@ -52,6 +60,8 @@ export const bannerBtn = css`
   ${mq[1]} {
     border-radius: 15px;
   }
+  ${mq[0]} {
+  }
 `;
 
 export const picture = css`
@@ -64,6 +74,9 @@ export const picture = css`
   ${mq[1]} {
     width: 90%;
   }
+  ${mq[0]} {
+    width: 100%;
+  }
 `;
 
 export const btnL = css`
@@ -74,6 +87,9 @@ export const btnL = css`
   ${mq[1]} {
     transform: translateX(120%);
   }
+  ${mq[0]} {
+    transform: translateX(110%);
+  }
 `;
 
 export const btnR = css`
@@ -83,6 +99,9 @@ export const btnR = css`
   }
   ${mq[1]} {
     transform: translateX(-120%);
+  }
+  ${mq[0]} {
+    transform: translateX(-110%);
   }
 `;
 
@@ -99,5 +118,8 @@ export const btn = css`
   }
   ${mq[1]} {
     font-size: 1.5rem;
+  }
+  ${mq[0]} {
+    font-size: 1.2rem;
   }
 `;

@@ -8,6 +8,9 @@ export const NavBarContainer = css`
     width: 90%;
     justify-content: space-between;
   }
+  ${mq[0]} {
+    width: 100%;
+  }
 `;
 
 export const logo = css`
@@ -28,6 +31,10 @@ export const logo = css`
   }
   ${mq[1]} {
     font-size: 1.8rem;
+  }
+  ${mq[0]} {
+    line-height: 100%;
+    font-size: 1.5rem;
   }
 `;
 
@@ -69,10 +76,20 @@ export const headerActions = css`
   ${mq[1]} {
     width: 100%;
   }
+  ${mq[0]} {
+    width: 50%;
+  }
 `;
 
 export const searchBarPositioning = css`
-  width: 100%;
+  ${mq[1]} {
+    width: 100%;
+  }
+  ${mq[0]} {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
 `;
 
 export const searchbarWidth = css`
@@ -85,6 +102,11 @@ export const searchbarWidth = css`
     justify-content: flex-end;
     width: 100%;
     position: relative;
+  }
+  ${mq[0]} {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
   }
 `;
 
@@ -104,6 +126,13 @@ export const basketIcon = css`
     font-size: 1rem;
     &:nth-child(2) {
       margin-left: 0.65rem;
+    }
+  }
+  ${mq[0]} {
+    font-size: 0.95rem;
+    margin-left: 0.4rem;
+    &:nth-child(3) {
+      font-size: 1.1rem;
     }
   }
 `;

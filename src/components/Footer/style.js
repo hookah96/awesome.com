@@ -31,6 +31,10 @@ export const siteMap = css`
     width: 100%;
     font-size: 1rem;
   }
+  ${mq[0]} {
+    width: 100%;
+    font-size: 0.8rem;
+  }
 `;
 
 export const infoContainer = css`
@@ -53,6 +57,9 @@ export const infoIcons = css`
   ${mq[1]} {
     font-size: 0.8rem;
   }
+  ${mq[0]} {
+    font-size: 0.7rem;
+  }
 `;
 
 export const paymentIcons = css`
@@ -64,6 +71,9 @@ export const paymentIcons = css`
   }
   ${mq[1]} {
     width: 2.2rem;
+  }
+  ${mq[0]} {
+    width: 1.9rem;
   }
 `;
 
@@ -79,6 +89,9 @@ export const socialMap = css`
   justify-content: flex-end;
   & a {
   }
+  ${mq[0]} {
+    justify-content: flex-start;
+  }
 `;
 
 export const socialIcons = css`
@@ -90,6 +103,10 @@ export const socialIcons = css`
   }
   ${mq[1]} {
     width: 2.2rem;
+  }
+  ${mq[0]} {
+    margin-top: 0.4rem;
+    width: 1.9rem;
   }
 `;
 
@@ -103,6 +120,10 @@ export const text = css`
     font-size: 0.8rem;
     letter-spacing: 0.07em;
   }
+  ${mq[0]} {
+    font-size: 0.6rem;
+    letter-spacing: 0.05em;
+  }
 `;
 
 export const credits = css`
@@ -112,4 +133,7 @@ export const credits = css`
   font-size: 10px;
   letter-spacing: 0.1em;
   color: #63a2dd;
+  ${mq[0]} {
+    font-size: 9px;
+  }
 `;

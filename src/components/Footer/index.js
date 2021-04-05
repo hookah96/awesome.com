@@ -15,30 +15,12 @@ import {
   socialIcons,
   credits,
 } from './style';
-import paypal from '../../images/001-paypal.svg';
-import mastercard from '../../images/002-mastercard.svg';
-import americanExpress from '../../images/003-american express.svg';
-import visa from '../../images/004-visa.svg';
-import fb from '../../images/facebook.svg';
-import instagram from '../../images/instagram.svg';
-import linkedin from '../../images/linkedin.svg';
+import {
+  paymentMethods,
+  socials,
+} from '../../utils/arraysForMapping/forFooter';
 
 const Footer = ({ scrollToCompany }) => {
-  const paymentMethods = [
-    `${paypal}`,
-    `${mastercard}`,
-    `${visa}`,
-    `${americanExpress}`,
-  ];
-  const socials = [
-    { title: `${fb}`, link: 'https://www.facebook.com/' },
-    { title: `${instagram}`, link: 'https://www.instagram.com/' },
-    {
-      title: `${linkedin}`,
-      link: 'https://www.linkedin.com/in/giorgos-makrakis/',
-    },
-  ];
-
   const scrolling = () => {
     window.scrollTo({
       top: scrollToCompany.current.offsetTop,

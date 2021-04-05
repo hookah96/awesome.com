@@ -12,7 +12,7 @@ import {
   subNav,
 } from './style';
 import { cx } from 'emotion';
-import { categories } from '../NavBar';
+import { categories } from '../../utils/arraysForMapping/forNavBar';
 
 const SideNavBar = ({ isOpenSideNav, setIsOpenSideNav, scrollToCompany }) => {
   const [subnav, setSubnav] = useState(false);

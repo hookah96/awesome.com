@@ -26,6 +26,15 @@ export const form_wrapper = css`
       box-shadow: 5px 5px 5px #e0e0e0;
     }
   }
+  ${mq[0]} {
+    width: 4.7vw;
+    height: 2.8vh;
+    justify-content: flex-end;
+    &:focus-within {
+      width: 100%;
+      box-shadow: 3px 3px 3px #e0e0e0;
+    }
+  }
 `;
 
 export const input = css`
@@ -39,6 +48,7 @@ export const input = css`
   &:focus {
     outline: none;
   }
+
   ${mq[2]} {
     width: 100%;
     font-size: 0.6rem;
@@ -50,6 +60,20 @@ export const input = css`
     align-self: center;
     opacity: 0;
     cursor: pointer;
+
+    &:focus-within {
+      opacity: 1;
+      cursor: initial;
+    }
+  }
+  ${mq[0]} {
+    width: 90%;
+    font-size: 0.75rem;
+    padding: 3px;
+    align-self: center;
+    opacity: 0;
+    cursor: pointer;
+
     &:focus-within {
       opacity: 1;
       cursor: initial;
@@ -70,5 +94,11 @@ export const searchBtn = css`
     margin: 0.1rem 0rem 0.1rem 0rem;
     padding-right: 0.1rem;
     margin-left: auto;
+  }
+  ${mq[0]} {
+    font-size: 0.65rem;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: 0;
   }
 `;

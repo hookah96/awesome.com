@@ -3,7 +3,6 @@ import { mq } from '../../utils/cssUtils';
 
 export const compContainer = css`
   margin-top: 5vw;
-  // width: 100%;
   padding: 2.5vw var(--basic-lr-margin) 0 var(--basic-lr-margin);
   background: linear-gradient(180deg, #e9f3fa 3.33%, #9bd8d4 99.63%);
   & h4 {
@@ -26,6 +25,16 @@ export const compContainer = css`
       font-size: 2.3rem;
     }
   }
+  ${mq[0]} {
+    margin-top: 0vw;
+    padding-bottom: 1rem;
+    & h4 {
+      font-size: 2.1rem;
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
 `;
 
 export const infoCol = css`
@@ -33,8 +42,9 @@ export const infoCol = css`
   flex-direction: column;
   ${mq[1]} {
     display: block;
-    // position: relative;
-    // margin-top: 10rem;
+  }
+  ${mq[0]} {
+    display: block;
   }
 `;
 
@@ -86,11 +96,10 @@ export const displayInfo = css`
   }
   ${mq[1]} {
     display: block;
-   margin-top: 2.2rem;
+    margin-top: 3rem;
     & img {
       margin: 1rem;
       align-self: flex-start;
-      // position: relative;
       width: 40%;
       float: left;
       bottom: 100px;
@@ -98,14 +107,11 @@ export const displayInfo = css`
     }
     & p {
       line-height: 1.35rem;
-      // position: absolute;
-      // float: left;
     }
     &:nth-child(2) {
-      
       & img {
         margin: 0 0 1rem 0;
-        float: right; 
+        float: right;
         shape-outside: circle(50%);
       }
     }
@@ -116,5 +122,36 @@ export const displayInfo = css`
         width: 35%;
         height: 15%;
       }
+    }
+  }
+  ${mq[0]} {
+    display: block;
+    margin-top: 4rem;
+    & img {
+      margin: 1rem 1rem 0 0.8rem;
+      align-self: flex-start;
+      width: 50%;
+      float: left;
+      shape-outside: circle(70%);
+    }
+    & p {
+      line-height: 1.35rem;
+    }
+    &:nth-child(2) {
+      & img {
+        margin: 0 0 1rem 0;
+        float: right;
+        shape-outside: circle(50%);
+      }
+    }
+    &:nth-child(3) {
+      margin-bottom: 1rem;
+      & img {
+        margin: 0.5rem 1rem 0 0;
+        shape-outside: circle(50%);
+        width: 40%;
+        height: 20%;
+      }
+    }
   }
 `;

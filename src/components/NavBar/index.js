@@ -5,7 +5,6 @@ import {
   navMenu,
   navOptions,
   headerActions,
-  searchBarPositioning,
   searchbarWidth,
   basketIcon,
   ddPositioning,
@@ -16,44 +15,13 @@ import {
   cat,
 } from './style';
 import SearchBar from '../SearchBar';
+import SideNavBar from './SideNavBar';
+import { categories } from '../../utils/arraysForMapping/forNavBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faShoppingCart,
   faCaretRight,
-  faBars,
-  faTimes,
 } from '@fortawesome/free-solid-svg-icons';
-
-export const categories = [
-  {
-    name: 'Computers',
-    link: '',
-  },
-  {
-    name: 'Photography',
-    link: '',
-  },
-  {
-    name: 'Audio',
-    link: '',
-  },
-  {
-    name: 'Stationery',
-    link: '',
-  },
-  {
-    name: 'Health',
-    link: '',
-  },
-  {
-    name: 'Fashion',
-    link: '',
-  },
-  {
-    name: 'Pet supplies',
-    link: '',
-  },
-];
 
 const NavBar = ({
   cart,
@@ -81,9 +49,6 @@ const NavBar = ({
     ));
   };
 
-  const toggleNavbar = () => {
-    setIsOpenSideNav((prev) => !prev);
-  };
   return (
     <>
       {!isTablet ? (
@@ -136,21 +101,10 @@ const NavBar = ({
           </div>
         </div>
       ) : (
-        <div className={NavBarContainer}>
-          <div className={logo}>awesome</div>
-
-          <div className={headerActions}>
-            <div className={searchBarPositioning}>
-              <SearchBar classname={searchbarWidth} />
-            </div>
-            <FontAwesomeIcon icon={faShoppingCart} className={basketIcon} />
-            <FontAwesomeIcon
-              icon={isOpenSideNav ? faTimes : faBars}
-              className={basketIcon}
-              onClick={toggleNavbar}
-            />
-          </div>
-        </div>
+        <SideNavBar
+          isOpenSideNav={isOpenSideNav}
+          setIsOpenSideNav={setIsOpenSideNav}
+        />
       )}
 
       {children}

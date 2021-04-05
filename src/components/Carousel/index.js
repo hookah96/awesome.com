@@ -6,7 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { slider, picture, btnR, btnL, btn, txt, bannerBtn } from './style';
 import { cx } from 'emotion';
-import { carouselImages } from '../../utils/carouselImages';
+import { carouselImages } from '../../utils/arraysForMapping/forCarousel';
 
 const Carousel = () => {
   const [index, setIndex] = useState(0);

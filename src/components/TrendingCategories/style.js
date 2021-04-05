@@ -23,6 +23,12 @@ export const container = css`
       font-size: 1.03rem;
     }
   }
+  ${mq[0]} {
+    margin-top: 6vw;
+    & p {
+      font-size: 1rem;
+    }
+  }
 `;
 
 export const trendCat = css`
@@ -32,11 +38,18 @@ export const trendCat = css`
     margin-top: 7vw;
     margin-left: 1vw;
   }
+  ${mq[0]} {
+    margin-top: 10vw;
+    margin-left: 0vw;
+  }
 `;
 
 export const flexCategories = css`
   display: flex;
   justify-content: space-between;
+  ${mq[0]} {
+    flex-flow: row wrap;
+  }
 `;
 
 export const catIcons = css`
@@ -54,6 +67,10 @@ export const catIcons = css`
     margin-bottom: 1rem;
     width: 60%;
   }
+  ${mq[0]} {
+    width: 50%;
+    margin-bottom: 0rem;
+  }
 `;
 
 export const catContainer = css`
@@ -61,6 +78,10 @@ export const catContainer = css`
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+  ${mq[0]} {
+    width: 50%;
+    margin-bottom: 3rem;
+  }
 `;
 
 export const catTitle = css`
@@ -84,5 +105,9 @@ export const catTitle = css`
     width: 80%;
 
     font-size: 0.9rem;
+  }
+  ${mq[0]} {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
   }
 `;

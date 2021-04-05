@@ -1,7 +1,7 @@
-import banner1 from '../images/banner1.jpg';
-import banner2 from '../images/banner2.jpg';
-import banner3 from '../images/banner3.jpg';
-import { mq } from '../utils/cssUtils';
+import banner1 from '../../images/banner1.jpg';
+import banner2 from '../../images/banner2.jpg';
+import banner3 from '../../images/banner3.jpg';
+import { mq } from '../../utils/cssUtils';
 import { css } from 'emotion';
 
 export const carouselImages = [
@@ -36,6 +36,15 @@ export const carouselImages = [
           font-size: 0.8rem;
         }
       }
+      ${mq[0]} {
+        width: 30%;
+        margin-top: -0.5rem;
+        & p {
+          margin-top: 0.5rem;
+          margin-bottom: 0.5rem;
+          font-size: 0.8rem;
+        }
+      }
     `,
   },
   {
@@ -43,6 +52,10 @@ export const carouselImages = [
     text: 'Find your new computer.',
     positioningText: css`
       transform: translate(25%, -50%);
+      ${mq[0]} {
+        transform: translate(30%, -50%);
+        width: 55%;
+      }
     `,
     positioningBtn: css`
       transform: translate(54%, 100%);
@@ -65,6 +78,15 @@ export const carouselImages = [
         width: 20%;
         margin-top: 0rem;
         & p {
+          font-size: 0.8rem;
+        }
+      }
+      ${mq[0]} {
+        width: 30%;
+        margin-top: -0.5rem;
+        & p {
+          margin-top: 0.5rem;
+          margin-bottom: 0.5rem;
           font-size: 0.8rem;
         }
       }
@@ -100,6 +122,15 @@ export const carouselImages = [
         width: 20%;
         margin-top: 0rem;
         & p {
+          font-size: 0.8rem;
+        }
+      }
+      ${mq[0]} {
+        width: 30%;
+        margin-top: -0.5rem;
+        & p {
+          margin-top: 0.5rem;
+          margin-bottom: 0.5rem;
           font-size: 0.8rem;
         }
       }

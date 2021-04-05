@@ -1,4 +1,5 @@
 import { css } from 'emotion';
+import { mq } from '../../utils/cssUtils';
 
 export const sideNavContainer = css`
   z-index: 10;
@@ -29,6 +30,9 @@ export const sideNavOptions = css`
   letter-spacing: 0.2em;
   text-transform: lowercase;
   cursor: pointer;
+  ${mq[0]} {
+    font-size: 0.8rem;
+  }
 `;
 
 export const options = css`
@@ -60,5 +64,10 @@ export const subNav = css`
   &:hover {
     font-size: 1.2rem;
     border-bottom: 1.8px solid white;
+  }
+  ${mq[0]} {
+    &:hover {
+      font-size: 0.9rem;
+    }
   }
 `;
