@@ -168,6 +168,7 @@ export const ddelement = css`
   cursor: pointer;
   font-size: 1rem;
   letter-spacing: 0.05em;
+  color: black;
   &:first-child {
     display: flex;
     align-items: center;
@@ -188,6 +189,10 @@ export const ddelement = css`
 
 export const ddIcon = css`
   margin-left: 0.5vw;
+`;
+
+export const active = css`
+  color: black;
 `;
 
 export const ddContainerCat = css`

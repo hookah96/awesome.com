@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink, useParams, useRouteMatch } from 'react-router-dom';
 import {
   NavBarContainer,
   logo,
@@ -13,6 +14,7 @@ import {
   ddelement,
   ddContainerCat,
   cat,
+  active,
 } from './style';
 import SearchBar from '../SearchBar';
 import SideNavBar from './SideNavBar';
@@ -41,6 +43,7 @@ const NavBar = ({
     });
   };
 
+  const { url } = useRouteMatch();
   const categoryMap = () => {
     return categories.map((el, i) => (
       <div key={i} className={cat}>
@@ -53,7 +56,9 @@ const NavBar = ({
     <>
       {!isTablet ? (
         <div className={NavBarContainer}>
-          <div className={logo}>awesome</div>
+          <NavLink to='/' exact activeClassName={active}>
+            <div className={logo}>awesome</div>
+          </NavLink>
 
           <div className={navMenu}>
             <div
@@ -73,7 +78,9 @@ const NavBar = ({
                       categories
                       <FontAwesomeIcon icon={faCaretRight} className={ddIcon} />
                     </div>
-                    <div className={ddelement}>products</div>
+                    <NavLink to='/products/' activeClassName={active}>
+                      <div className={ddelement}>products</div>
+                    </NavLink>
                   </div>
                   {inHoverCat && (
                     <div

@@ -1,54 +1,59 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
-import { formatPrice } from '../../utils/formatPrice';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import {
-  card,
-  image,
-  product_image,
-  action_cart,
-  cardContent,
-  cardDetails,
-  name1,
-  product_desc,
-  action,
+  cardContainer,
+  fitDivWidth,
+  prodPhoto,
+  fitDivHeight,
+  prodTitle,
+  prodDesc,
+  noDesc,
+  prodRating,
+  prodPrice,
 } from './style';
+import { cx } from 'emotion';
 
-const Card = ({ product, setCart }) => {
-  const { name, description, media, price } = product;
-  const addCartItem = (id) => {
-    setCart((prevState) => [...prevState, id]);
+const Card = ({ product }) => {
+  const { name, description, media, price, assets } = product;
+  const { image_dimensions } = assets[0];
+  const { width, height } = image_dimensions;
+  const conditionForImg = height > width;
+
+  const starSystem = () => {
+    let arr = [];
+    for (let i = 0; i < 5; i++) {
+      arr.push(<FontAwesomeIcon icon={faStar} />);
+    }
+    return arr.map((star, i) => {
+      return <div key={i}>{star}</div>;
+    });
   };
 
   return (
-    <div className={card}>
-      <div className={image}>
-        <img src={media.source} alt={name} className={product_image} />
+    <div className={cardContainer}>
+      <div
+        className={cx(
+          { [fitDivHeight]: conditionForImg },
+          { [fitDivWidth]: !conditionForImg }
+        )}
+      >
+        <img src={media.source} alt={name} className={prodPhoto} />
       </div>
-      <div className={cardContent}>
-        <div className={cardDetails}>
-          <div className={name1}>
-            <h2>{name}</h2>
-          </div>
-          <div className={product_desc}>
-            <h4
-              dangerouslySetInnerHTML={{
-                __html: description,
-              }}
-            ></h4>
-          </div>
+      <div className={prodTitle}>{name}</div>
+      <div
+        className={prodDesc}
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
+      {description === '' && (
+        <div className={noDesc}>
+          <br />
+          <br />
         </div>
-        <div className={action}>
-          <h3>{formatPrice(price.raw)}</h3>
-          <FontAwesomeIcon
-            icon={faCartPlus}
-            className={action_cart}
-            onClick={() => {
-              addCartItem(product);
-              return <h5>The item added to your cart!</h5>;
-            }}
-          />
-        </div>
+      )}
+      <div>
+        <div className={prodRating}>{starSystem()}</div>
+        <div className={prodPrice}> {price.formatted_with_symbol}</div>
       </div>
     </div>
   );

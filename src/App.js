@@ -1,29 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { commerce } from './utils/commerce';
 import Routes from './routes';
+import { fetchProducts } from './api/fetchProducts';
+import { ReactQueryDevtools } from 'react-query-devtools';
+import { useQuery } from 'react-query';
 
 const App = () => {
-  const [products, setProducts] = useState([]);
+  const productsAmount = 26;
+  const { data, isLoading, isError, error } = useQuery(
+    ['products', productsAmount],
+    fetchProducts
+  );
 
-  const fetchProducts = async () => {
-    try {
-      const { data } = await commerce.products.list();
+  if (isLoading) return 'loading';
+  if (isError) throw error.message;
 
-      setProducts(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
   return (
     <div>
       <BrowserRouter>
-        <Routes products={products} />
+        <Routes products={data.products} />
       </BrowserRouter>
+      <ReactQueryDevtools />
     </div>
   );
 };

@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import Homepage from './Pages/Homepage';
 import Cart from './Pages/Cart';
 import SearchPage from './Pages/Search';
+import Products from './Pages/Products/index';
 
 const Routes = ({ products }) => {
   const scrollToCompany = useRef(null);
@@ -37,6 +38,11 @@ const Routes = ({ products }) => {
     >
       <Switch>
         <Route
+          path='/products'
+          render={() => <Products products={products} />}
+        />
+
+        {/* <Route
           path='/searchpage'
           render={() => (
             <SearchPage
@@ -46,7 +52,7 @@ const Routes = ({ products }) => {
               scrollToCompany={scrollToCompany}
             />
           )}
-        />
+        /> */}
         <Route
           path='/cart'
           render={() => <Cart cart={cart} setCart={setCart} />}
