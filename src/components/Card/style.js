@@ -1,92 +1,84 @@
 import { css } from 'emotion';
 import { mq } from '../../utils/cssUtils';
 
-export const card = css`
-  background-color: #ace5ff;
-  padding: 0.8rem 1.5rem 1.25rem 1.5rem;
-  border-radius: 9px;
-  ${mq[0]} {
-    padding: 0.5rem 0.8rem 0.8rem 0.8rem;
-  }
-  ${mq[1]} {
-    padding: 0.5rem 0.8rem 0.8rem 0.8rem;
-  }
-`;
-
-export const image = css`
-  display: flex;
-  justify-content: center;
-  padding-bottom: 1rem;
-  ${mq[0]} {
-    padding-bottom: 0.5rem;
-  }
-`;
-
-export const product_image = css`
-  width: 250px;
-  height: 250px;
-  border-radius: 9px;
-  ${mq[0]} {
-    width: 130px;
-    height: 100px;
-  }
-  ${mq[1]} {
-    width: 150px;
-    height: 140px;
-  }
-`;
-
-export const cardContent = css`
-  background-color: #d3fcff;
-  padding: 0 0.8em 0.7em 0.8em;
-  border-radius: 9px;
-  ${mq[0]} {
-    padding: 0 0.5em 0 0.5em;
-  }
-  ${mq[1]} {
-    padding: 0 0.5em 0 0.5em;
-  }
-`;
-
-export const cardDetails = css`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const name1 = css`
+export const cardContainer = css`
+  width: 15%;
+  max-height: 100%;
+  margin: 0.5rem;
+  padding: 1.8rem;
+  background: white;
   display: flex;
   justify-content: space-between;
-  ${mq[0]} {
-    width: 100%;
-    font-size: 0.85em;
-  }
-  ${mq[1]} {
-    width: 100%;
-    font-size: 0.85em;
-  }
+  flex-flow: column nowrap;
+  border-radius: 10px;
 `;
 
-export const product_desc = css`
-  display: inline-block;
-  height: 100px;
+export const fitDivHeight = css`
+  height: 30vh;
+  max-height: 90%;
+  align-self: center;
+  display: block;
   width: 100%;
-  margin-bottom: 1em;
-  color: #909090;
 `;
 
-export const action = css`
+export const prodPhoto = css`
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+export const fitDivWidth = css`
+  width: 100%;
+  max-height: 90%;
+  align-self: center;
+  display: block;
+`;
+
+export const prodTitle = css`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 113.7%;
+  margin: 1rem 0 0rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+export const prodDesc = css`
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.8rem;
+  color: #707070;
+  line-height: 113.7%;
+  margin: 0.3rem 0 0.7rem 0;
+  & p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+`;
+
+export const noDesc = css`
+  margin: 0.7rem 0 0.7rem 0;
+`;
+
+export const prodRating = css`
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  color: #f68b24;
+  font-size: 0.5rem;
+  margin-bottom: 0.5rem;
 `;
 
-export const action_cart = css`
-  font-size: 1.2rem;
-  cursor: pointer;
-  ${mq[0]} {
-    font-size: 1em;
-  }
-  ${mq[1]} {
-    font-size: 1em;
-  }
+export const prodPrice = css`
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 113.7%;
 `;

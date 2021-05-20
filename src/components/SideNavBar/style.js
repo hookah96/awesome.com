@@ -3,20 +3,36 @@ import { mq } from '../../utils/cssUtils';
 
 export const sideNavContainer = css`
   z-index: 10;
-  width: 50%;
+  width: 30%;
   min-height: 100%;
   position: absolute;
   display: block;
   background: var(--primary);
-  right: -100%;
-  transition: right 500ms cubic-bezier(0, 0, 0.6, 0.71);
+  right: 0%;
+  transition: width 500ms ease-in;
   margin-top: 0.5rem;
   border-radius: 4px 0 0 0;
 `;
 
-export const openSideNav = css`
-  right: 0%;
-  transition: right 500ms cubic-bezier(0, 0, 0.6, 0.71);
+export const inactiveSideNav = css`
+  z-index: 10;
+  width: 0%;
+  min-height: 100%;
+  position: absolute;
+  display: block;
+  background: var(--primary);
+  right: -10%;
+  transition: width 500ms ease-out;
+  margin-top: 0.5rem;
+  border-radius: 4px 0 0 0;
+`;
+
+export const link = css`
+  color: white;
+
+  &:active {
+    color: white;
+  }
 `;
 
 export const sideNavOptions = css`
@@ -34,6 +50,9 @@ export const sideNavOptions = css`
     font-size: 0.8rem;
   }
 `;
+export const inactiveSideNavOptions = css`
+  display: none;
+`;
 
 export const options = css`
   width: auto;
@@ -41,6 +60,7 @@ export const options = css`
   border-bottom: 1px solid white;
   text-align: center;
   cursor: pointer;
+  color: white;
   &:first-child {
     & svg {
       padding-left: 0.5rem;

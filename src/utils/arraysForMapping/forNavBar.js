@@ -1,30 +1,30 @@
 export const categories = [
   {
     name: 'Computers',
-    link: '',
+    link: 'computers',
   },
   {
     name: 'Photography',
-    link: '',
+    link: 'photography',
   },
   {
-    name: 'Audio',
-    link: '',
+    name: 'Gadgets',
+    link: 'gadgets',
   },
   {
-    name: 'Stationery',
-    link: '',
+    name: 'Home',
+    link: 'home',
   },
   {
-    name: 'Health',
-    link: '',
+    name: 'Tools',
+    link: 'tools',
   },
   {
     name: 'Fashion',
-    link: '',
+    link: 'fashion',
   },
   {
     name: 'Pet supplies',
-    link: '',
+    link: 'pet-supplies',
   },
 ];

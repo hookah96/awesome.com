@@ -1,42 +1,48 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import NavBar from './components/NavBar';
-import Homepage from './Pages/Homepage';
+// import NavBar from './components/NavBar';
+// import Homepage from './Pages/Homepage';
 import Cart from './Pages/Cart';
-import SearchPage from './Pages/Search';
+// import SearchPage from './Pages/Search';
+// import Products from './Pages/Products/index';
 
 const Routes = ({ products }) => {
-  const scrollToCompany = useRef(null);
-  const keywords = [];
+  // const scrollToCompany = useRef(null);
+  // const keywords = [];
   const [cart, setCart] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
-  const [isOpenSideNav, setIsOpenSideNav] = useState(false);
+  // const [searchResults, setSearchResults] = useState([]);
+  // const [isOpenSideNav, setIsOpenSideNav] = useState(false);
 
-  const mediaToMatch = '(max-width: 768px)';
-  const [isTablet, setIsTablet] = useState(
-    window.matchMedia(mediaToMatch).matches
-  );
+  // const mediaToMatch = '(max-width: 768px)';
+  // const [isTablet, setIsTablet] = useState(
+  //   window.matchMedia(mediaToMatch).matches
+  // );
 
-  useEffect(() => {
-    let mediaQuery = window.matchMedia(mediaToMatch);
-    mediaQuery.matches !== isTablet && setIsTablet(mediaQuery.matches);
+  // useEffect(() => {
+  //   let mediaQuery = window.matchMedia(mediaToMatch);
+  //   mediaQuery.matches !== isTablet && setIsTablet(mediaQuery.matches);
 
-    const listener = () => setIsTablet(mediaQuery.matches);
-    mediaQuery.addEventListener('change', listener);
-    return () => mediaQuery.removeEventListener('change', listener);
-  }, [isTablet, mediaToMatch]);
+  //   const listener = () => setIsTablet(mediaQuery.matches);
+  //   mediaQuery.addEventListener('change', listener);
+  //   return () => mediaQuery.removeEventListener('change', listener);
+  // }, [isTablet, mediaToMatch]);
 
   return (
-    <NavBar
-      cart={cart}
-      isTablet={isTablet}
-      isOpenSideNav={isOpenSideNav}
-      setIsOpenSideNav={setIsOpenSideNav}
-      scrollToCompany={scrollToCompany}
-    >
-      <Switch>
-        <Route
+    // <NavBar
+    //   cart={cart}
+    //   // isTablet={isTablet}
+    //   // isOpenSideNav={isOpenSideNav}
+    //   // setIsOpenSideNav={setIsOpenSideNav}
+    //   scrollToCompany={scrollToCompany}
+    // >
+    <Switch>
+      {/* <Route
+          path='/products'
+          render={() => <Products products={products} />}
+        /> */}
+
+      {/* <Route
           path='/searchpage'
           render={() => (
             <SearchPage
@@ -46,26 +52,26 @@ const Routes = ({ products }) => {
               scrollToCompany={scrollToCompany}
             />
           )}
-        />
-        <Route
-          path='/cart'
-          render={() => <Cart cart={cart} setCart={setCart} />}
-        />
-        <Route
-          path='/'
-          render={() => (
-            <Homepage
-              products={products}
-              cart={cart}
-              setCart={setCart}
-              setSearchResults={setSearchResults}
-              searchResults={searchResults}
-              keywords={keywords}
-            />
-          )}
-        />
-      </Switch>
-    </NavBar>
+        /> */}
+      <Route
+        path='/cart'
+        render={() => <Cart cart={cart} setCart={setCart} />}
+      />
+      {/* <Route
+        path='/'
+        render={() => (
+          <Homepage
+            products={products}
+            cart={cart}
+            setCart={setCart}
+            setSearchResults={setSearchResults}
+            searchResults={searchResults}
+            keywords={keywords}
+          />
+        )}
+      /> */}
+    </Switch>
+    // </NavBar>
   );
 };
 

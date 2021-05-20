@@ -37,8 +37,10 @@ export const txt = css`
     font-size: 1.6rem;
   }
   ${mq[0]} {
-    width: 70%;
+    width: 55%;
     font-size: 1rem;
+    text-align: left;
+    margin: 2rem 2rem 5rem -3rem;
   }
 `;
 
@@ -46,6 +48,7 @@ export const bannerBtn = css`
   position: absolute;
   width: 18%;
   margin-top: 1.5rem;
+  border-color: transparent;
   border-radius: 20px;
   box-shadow: 4px 4px 4px rgba(48, 83, 130, 0.85);
   background: var(--secondaryDB);

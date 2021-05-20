@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronCircleLeft,
@@ -32,9 +33,11 @@ const Carousel = () => {
       <div className={cx(txt, carouselImages[index].positioningText)}>
         {carouselImages[index].text}
       </div>
-      <div className={cx(bannerBtn, carouselImages[index].positioningBtn)}>
-        <p>Check now</p>
-      </div>
+      <button className={cx(bannerBtn, carouselImages[index].positioningBtn)}>
+        <NavLink to={carouselImages[index].link}>
+          <p>Check now</p>
+        </NavLink>
+      </button>
       <img
         src={carouselImages[index].image}
         alt={`${carouselImages[index].text}`}

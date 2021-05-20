@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
-
+import { scrollingToCompany } from '../../utils/scrollingToCompany';
 import {
   sideNavContainer,
   openSideNav,
@@ -10,6 +11,9 @@ import {
   openOptionsBorderTop,
   subnavContainer,
   subNav,
+  link,
+  inactiveSideNav,
+  inactiveSideNavOptions,
 } from './style';
 import { cx } from 'emotion';
 import { categories } from '../../utils/arraysForMapping/forNavBar';
@@ -19,9 +23,11 @@ const SideNavBar = ({ isOpenSideNav, setIsOpenSideNav, scrollToCompany }) => {
 
   const SubNav = () => {
     return categories.map((el, i) => (
-      <div key={i} className={subNav} onClick={toggleSideNav}>
-        {el.name}
-      </div>
+      <NavLink to={`/products/${el.link}`} className={link} key={i}>
+        <div className={subNav} onClick={toggleSideNav}>
+          {el.name}
+        </div>
+      </NavLink>
     ));
   };
 
@@ -34,20 +40,9 @@ const SideNavBar = ({ isOpenSideNav, setIsOpenSideNav, scrollToCompany }) => {
     setSubnav((prev) => !prev);
   };
 
-  const scrolling = () => {
-    window.scrollTo({
-      top: scrollToCompany.current.offsetTop,
-      behavior: 'smooth',
-    });
-  };
-
   return (
-    <div
-      className={
-        isOpenSideNav ? cx(sideNavContainer, openSideNav) : sideNavContainer
-      }
-    >
-      <div className={sideNavOptions}>
+    <div className={isOpenSideNav ? sideNavContainer : inactiveSideNav}>
+      <div className={isOpenSideNav ? sideNavOptions : inactiveSideNavOptions}>
         <div className={options} onClick={showSubnav}>
           shop
           <FontAwesomeIcon icon={subnav ? faCaretUp : faCaretDown} />
@@ -57,15 +52,19 @@ const SideNavBar = ({ isOpenSideNav, setIsOpenSideNav, scrollToCompany }) => {
             <SubNav />
           </div>
         )}
-        <div
+        <NavLink
+          to='/'
           className={subnav ? cx(options, openOptionsBorderTop) : options}
-          onClick={() => {
-            scrolling();
-            setIsOpenSideNav(false);
-          }}
         >
-          our company
-        </div>
+          <div
+            onClick={() => {
+              scrollingToCompany(scrollToCompany);
+              setIsOpenSideNav(false);
+            }}
+          >
+            our company
+          </div>
+        </NavLink>
         <div className={options}>contact</div>
       </div>
     </div>

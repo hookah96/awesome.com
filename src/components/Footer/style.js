@@ -12,6 +12,7 @@ export const footContainer = css`
 
 export const nav = css`
   cursor: pointer;
+  color: #ffffff;
 `;
 
 export const siteMap = css`
