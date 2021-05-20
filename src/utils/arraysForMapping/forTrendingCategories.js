@@ -1,23 +1,27 @@
 import toolbox from '../../images/day9-toolbox 1.svg';
 import mac from '../../images/day42-imac 1.svg';
 import polaroid from '../../images/polaroidweb 1.svg';
-import stationery from '../../images/stationery 1.svg';
+import stationery from '../../images/stationery.svg';
 
 export const categories = [
   {
     icon: mac,
     title: 'Computers',
+    link: '/products/computers',
   },
   {
     icon: polaroid,
     title: 'Photography',
+    link: '/products/photography',
   },
   {
     icon: toolbox,
-    title: 'Gardening',
+    title: 'Tools',
+    link: '/products/tools',
   },
   {
     icon: stationery,
-    title: 'Stationery',
+    title: 'Fashion',
+    link: '/products/fashion',
   },
 ];

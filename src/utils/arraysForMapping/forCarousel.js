@@ -6,11 +6,15 @@ import { css } from 'emotion';
 
 export const carouselImages = [
   {
+    link: '/products/gadgets',
     image: banner1,
     text: 'Stay in sync with new gadgets.',
     positioningText: css`
       transform: translate(-15%, -50%);
       position: absolute;
+      ${mq[0]} {
+        transform: translate(0%, 0%);
+      }
     `,
     positioningBtn: css`
       transform: translate(-40%, 100%);
@@ -37,24 +41,35 @@ export const carouselImages = [
         }
       }
       ${mq[0]} {
-        width: 30%;
+        width: 25%;
         margin-top: -0.5rem;
         & p {
           margin-top: 0.5rem;
           margin-bottom: 0.5rem;
-          font-size: 0.8rem;
+          font-size: 0.7rem;
         }
+      }
+      @media only screen and (max-width: 375px) {
+        transform: translate(-100%, 100%);
+      }
+      @media only screen and (max-width: 320px) {
+        transform: translate(-80%, 100%);
+        width: 30%;
       }
     `,
   },
   {
+    link: '/products/computers',
     image: banner2,
     text: 'Find your new computer.',
     positioningText: css`
       transform: translate(25%, -50%);
       ${mq[0]} {
-        transform: translate(30%, -50%);
+        transform: translate(50%, -50%);
         width: 55%;
+      }
+      @media only screen and (max-width: 375px) {
+        transform: translate(75%, 0%);
       }
     `,
     positioningBtn: css`
@@ -90,13 +105,23 @@ export const carouselImages = [
           font-size: 0.8rem;
         }
       }
+      @media only screen and (max-width: 320px) {
+        width: 35%;
+        & p {
+          font-size: 0.7rem;
+        }
+      }
     `,
   },
   {
+    link: '/products/home',
     image: banner3,
     text: 'Make your place comfortable.',
     positioningText: css`
       transform: translate(-25%, -50%);
+      ${mq[0]} {
+        transform: translate(0%, 0%);
+      }
     `,
     positioningBtn: css`
       transform: translate(-60%, 100%);
@@ -125,13 +150,21 @@ export const carouselImages = [
           font-size: 0.8rem;
         }
       }
-      ${mq[0]} {
+      @media only screen and (max-width: 425px) {
+        transform: translate(-80%, 100%);
         width: 30%;
         margin-top: -0.5rem;
         & p {
           margin-top: 0.5rem;
           margin-bottom: 0.5rem;
           font-size: 0.8rem;
+        }
+      }
+      @media only screen and (max-width: 320px) {
+        width: 35%;
+        transform: translate(-70%, 100%);
+        & p {
+          font-size: 0.7rem;
         }
       }
     `,

@@ -58,6 +58,7 @@ export const navOptions = css`
   letter-spacing: 0.1em;
   text-transform: lowercase;
   cursor: pointer;
+  color: black;
   ${mq[3]} {
     margin-right: 1.25rem;
     font-size: 1rem;
@@ -176,6 +177,7 @@ export const ddelement = css`
   }
   &:last-child {
     padding: 1.1vw 1.1vw 1.1vw 1vw;
+    border-bottom: none;
   }
   ${mq[3]} {
     width: 87%;
@@ -211,14 +213,13 @@ export const ddContainerCat = css`
 `;
 
 export const cat = css`
+  color: black;
   font-size: 1rem;
   letter-spacing: 0.05em;
   border-bottom: 1px solid #429ff5;
   cursor: pointer;
   padding: 0.8vw;
-  &:last-child {
-    border-bottom: none;
-  }
+
   ${mq[3]} {
     width: 87%;
   }

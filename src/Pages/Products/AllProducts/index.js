@@ -1,22 +1,57 @@
-import React from 'react';
-import Breadcrumb from '../../../components/Breadcrumb';
+import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
+import { fetchProducts } from '../../../api/fetchProducts';
 import Filters from '../../../components/Filters';
 import CardsGrid from '../../../components/CardsGrid';
-import { categories } from '../../../utils/arraysForMapping/forNavBar';
-import { elCat } from './style';
-import { NavLink } from 'react-router-dom';
+import TitleForProducts from '../../../components/TitleForProducts';
+import { sortingPrice } from '../../../utils/sortingPrice';
 
-const AllProducts = ({ products }) => {
-  const catMap = categories.map((el, i) => (
-    <div key={i} className={elCat}>
-      {el.name}
-    </div>
-  ));
+const AllProducts = () => {
+  const productsAmount = 12;
+  const [pageIndex, setPageIndex] = useState(1);
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [sort, setSort] = useState('Top Rated');
+  const { data, isLoading, isError, error } = useQuery(
+    ['products', productsAmount, pageIndex],
+    fetchProducts
+  );
+
+  useEffect(() => {
+    !isLoading && !isError && setProducts(data.products);
+  }, [isLoading, isError, data]);
+
+  if (isLoading) return 'loading';
+  if (isError) return error.message;
+
+  const currentDisplayCateg = [
+    ...new Set(products.map((product) => product.categories[0].name)),
+  ];
+
   return (
     <div>
-      <Breadcrumb />
-      <Filters filterName={'Categories'} filterOptions={catMap} />
-      <CardsGrid products={products} />
+      <Filters
+        filterName={'Categories'}
+        filterOptions={currentDisplayCateg}
+        rawProducts={products}
+        setFilteredProducts={setFilteredProducts}
+        currentDisplayCateg={currentDisplayCateg}
+      />
+      <TitleForProducts
+        name={'All Products'}
+        sort={sort}
+        setSort={setSort}
+        pageIndex={pageIndex}
+        setPageIndex={setPageIndex}
+        pagination={data.meta.pagination}
+      />
+      <CardsGrid
+        products={
+          filteredProducts.length === 0
+            ? sortingPrice(sort, products)
+            : sortingPrice(sort, filteredProducts)
+        }
+      />
     </div>
   );
 };

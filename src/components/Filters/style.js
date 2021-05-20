@@ -2,7 +2,7 @@ import { css } from 'emotion';
 
 export const filtersContainer = css`
   margin: 0.5rem var(--basic-lr-margin) 0 var(--basic-lr-margin);
-  height: 100vh;
+  height: 70vh;
   position: relative;
   width: 18%;
   float: left;
@@ -29,24 +29,11 @@ export const filtersContainer = css`
 
 export const basicFilter = css`
   margin: 2rem 0 0 1rem;
+  display: flex;
+  flex-flow: column nowrap;
 `;
 
-// export const elCat = css`
-//   width: 60%;
-//   padding: 0.3rem 0 0 0.2rem;
-//   font-style: normal;
-//   font-weight: normal;
-//   font-size: 1.1rem;
-//   line-height: 113.7%;
-//   letter-spacing: 0.05em;
-//   cursor: pointer;
-//   &:hover {
-//     font-size: 1.2rem;
-//   }
-// `;
-
-export const priceFilters = css`
-  position: relative;
-  width: 60%;
-  margin: 3.2rem 0 0 1rem;
+export const elCat = css`
+  display: flex;
+  margin-top: 0.2rem;
 `;

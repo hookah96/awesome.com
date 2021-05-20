@@ -1,25 +1,14 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import Routes from './routes';
-import { fetchProducts } from './api/fetchProducts';
+import { BrowserRouter as Router, Route, HashRouter } from 'react-router-dom';
 import { ReactQueryDevtools } from 'react-query-devtools';
-import { useQuery } from 'react-query';
+import Pages from './Pages';
 
 const App = () => {
-  const productsAmount = 26;
-  const { data, isLoading, isError, error } = useQuery(
-    ['products', productsAmount],
-    fetchProducts
-  );
-
-  if (isLoading) return 'loading';
-  if (isError) throw error.message;
-
   return (
     <div>
-      <BrowserRouter>
-        <Routes products={data.products} />
-      </BrowserRouter>
+      <HashRouter>
+        <Route path='/' component={Pages} />
+      </HashRouter>
       <ReactQueryDevtools />
     </div>
   );

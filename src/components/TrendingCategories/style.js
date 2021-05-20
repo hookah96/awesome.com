@@ -1,7 +1,7 @@
 import { css } from 'emotion';
 import { mq } from '../../utils/cssUtils';
 
-export const container = css`
+export const trendCatContainer = css`
   margin-top: 5vw;
   & p {
     font-weight: normal;
@@ -47,21 +47,61 @@ export const trendCat = css`
 export const flexCategories = css`
   display: flex;
   justify-content: space-between;
+
   ${mq[0]} {
     flex-flow: row wrap;
   }
 `;
 
-export const catIcons = css`
-  width: 65%;
-  min-height: 65%;
+export const catContainer = css`
+  width: 90%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  color: whitesmoke;
+  ${mq[0]} {
+    width: 50%;
+    margin-bottom: 3rem;
+  }
+`;
+
+export const catIconsCont = css`
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
   margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: center;
+  ${mq[2]} {
+    width: 80%;
+    margin-bottom: 0rem;
+    a:last-child & {
+      width: 50%;
+    }
+  }
+  ${mq[1]} {
+    width: 90%;
+    margin-bottom: 0rem;
+    a:last-child & {
+      width: 65%;
+    }
+  }
+  ${mq[0]} {
+    width: 98%;
+    margin-bottom: 0rem;
+    a:last-child & {
+      width: 65%;
+    }
+  }
+`;
+
+export const catIcons = css`
+  width: 100%;
+  height: 25vh;
   cursor: pointer;
-  align-self: center;
 
   ${mq[2]} {
     width: 60%;
-    margin-bottom: 0.5rem;
   }
   ${mq[1]} {
     margin-bottom: 1rem;
@@ -70,17 +110,6 @@ export const catIcons = css`
   ${mq[0]} {
     width: 50%;
     margin-bottom: 0rem;
-  }
-`;
-
-export const catContainer = css`
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  ${mq[0]} {
-    width: 50%;
-    margin-bottom: 3rem;
   }
 `;
 

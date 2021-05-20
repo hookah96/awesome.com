@@ -8,16 +8,16 @@ export const categories = [
     link: 'photography',
   },
   {
-    name: 'Audio',
-    link: 'audio',
+    name: 'Gadgets',
+    link: 'gadgets',
   },
   {
-    name: 'Stationery',
-    link: 'stationery',
+    name: 'Home',
+    link: 'home',
   },
   {
-    name: 'Health',
-    link: 'health',
+    name: 'Tools',
+    link: 'tools',
   },
   {
     name: 'Fashion',
@@ -25,6 +25,6 @@ export const categories = [
   },
   {
     name: 'Pet supplies',
-    link: 'petsupplies',
+    link: 'pet-supplies',
   },
 ];

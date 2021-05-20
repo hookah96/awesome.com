@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { NavLink, useParams, useRouteMatch } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import {
   NavBarContainer,
   logo,
@@ -17,38 +17,40 @@ import {
   active,
 } from './style';
 import SearchBar from '../SearchBar';
-import SideNavBar from './SideNavBar';
+import MobileNavBar from './MobileNavBar';
 import { categories } from '../../utils/arraysForMapping/forNavBar';
+import { scrollingToCompany } from '../../utils/scrollingToCompany';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faShoppingCart,
   faCaretRight,
 } from '@fortawesome/free-solid-svg-icons';
 
-const NavBar = ({
-  cart,
-  children,
-  isTablet,
-  setIsOpenSideNav,
-  isOpenSideNav,
-  scrollToCompany,
-}) => {
+const NavBar = ({ children, scrollToCompany }) => {
   const [inHover, setInHover] = useState(false);
   const [inHoverCat, setInHoverCat] = useState(false);
 
-  const scrolling = () => {
-    window.scrollTo({
-      top: scrollToCompany.current.offsetTop,
-      behavior: 'smooth',
-    });
-  };
+  const mediaToMatch = '(max-width: 768px)';
+  const [isTablet, setIsTablet] = useState(
+    window.matchMedia(mediaToMatch).matches
+  );
 
-  const { url } = useRouteMatch();
+  useEffect(() => {
+    let mediaQuery = window.matchMedia(mediaToMatch);
+    mediaQuery.matches !== isTablet && setIsTablet(mediaQuery.matches);
+
+    const listener = () => setIsTablet(mediaQuery.matches);
+    mediaQuery.addEventListener('change', listener);
+    return () => mediaQuery.removeEventListener('change', listener);
+  }, [isTablet, mediaToMatch]);
+
   const categoryMap = () => {
     return categories.map((el, i) => (
-      <div key={i} className={cat}>
-        {el.name}
-      </div>
+      <NavLink to={`/products/${el.link}`} activeClassName={active}>
+        <div key={i} className={cat}>
+          {el.name}
+        </div>
+      </NavLink>
     ));
   };
 
@@ -56,7 +58,7 @@ const NavBar = ({
     <>
       {!isTablet ? (
         <div className={NavBarContainer}>
-          <NavLink to='/' exact activeClassName={active}>
+          <NavLink to='/' activeClassName={active}>
             <div className={logo}>awesome</div>
           </NavLink>
 
@@ -78,7 +80,10 @@ const NavBar = ({
                       categories
                       <FontAwesomeIcon icon={faCaretRight} className={ddIcon} />
                     </div>
-                    <NavLink to='/products/' activeClassName={active}>
+                    <NavLink
+                      to='/products/all-products'
+                      activeClassName={active}
+                    >
                       <div className={ddelement}>products</div>
                     </NavLink>
                   </div>
@@ -94,11 +99,11 @@ const NavBar = ({
                 </div>
               )}
             </div>
-
-            <div className={navOptions} onClick={scrolling}>
-              our company
-            </div>
-
+            <NavLink to='/' className={navOptions}>
+              <div onClick={() => scrollingToCompany(scrollToCompany)}>
+                our company
+              </div>
+            </NavLink>
             <div className={navOptions}>contact</div>
           </div>
 
@@ -108,10 +113,7 @@ const NavBar = ({
           </div>
         </div>
       ) : (
-        <SideNavBar
-          isOpenSideNav={isOpenSideNav}
-          setIsOpenSideNav={setIsOpenSideNav}
-        />
+        <MobileNavBar scrollToCompany={scrollToCompany} />
       )}
 
       {children}

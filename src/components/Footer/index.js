@@ -1,6 +1,8 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
+import { scrollingToCompany } from '../../utils/scrollingToCompany';
 import {
   footContainer,
   nav,
@@ -21,13 +23,6 @@ import {
 } from '../../utils/arraysForMapping/forFooter';
 
 const Footer = ({ scrollToCompany }) => {
-  const scrolling = () => {
-    window.scrollTo({
-      top: scrollToCompany.current.offsetTop,
-      behavior: 'smooth',
-    });
-  };
-
   const mapIcons = (arr, className) => {
     return (
       <div className={socialMap}>
@@ -52,12 +47,14 @@ const Footer = ({ scrollToCompany }) => {
   return (
     <div className={footContainer}>
       <div className={siteMap}>
-        <div className={nav} onClick={() => scrolling(0)}>
+        <NavLink to='/products/all-products' className={nav}>
           shop
-        </div>
-        <div onClick={() => scrolling()} className={nav}>
-          our company
-        </div>
+        </NavLink>
+        <NavLink to='/' className={nav}>
+          <div onClick={() => scrollingToCompany(scrollToCompany)}>
+            our company
+          </div>
+        </NavLink>
         <div className={nav}>contact</div>
       </div>
 

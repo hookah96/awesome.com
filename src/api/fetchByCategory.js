@@ -1,7 +1,7 @@
-export const fetchProducts = async (key, limit, pageIndex) => {
+export const fetchByCategory = async (key, category, pageIndex) => {
   try {
     const response = await fetch(
-      `https://api.chec.io/v1/products?page=${pageIndex}&limit=${limit}`,
+      `https://api.chec.io/v1/products?limit=25&page=${pageIndex}`,
       {
         method: 'GET',
         headers: {
@@ -12,8 +12,10 @@ export const fetchProducts = async (key, limit, pageIndex) => {
     );
 
     const { data, meta } = await response.json();
-
-    return { products: data, meta };
+    const currentCategory = data.filter(
+      (product) => product.categories[0].slug === category
+    );
+    return { catProducts: currentCategory, meta };
   } catch (error) {
     console.log(`Error: ${error}`);
     throw new Error(error);
